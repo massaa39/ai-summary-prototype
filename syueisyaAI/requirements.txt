@@ -1,5 +1,10 @@
-fastapi
-uvicorn
-openai
-jinja2
-python-dotenv
+# 🔴 COMPONENT: Python依存パッケージ
+fastapi==0.115.12
+uvicorn==0.34.2
+openai==1.75.0
+httpx==0.28.1
+beautifulsoup4==4.12.2
+jinja2==3.1.6
+python-dotenv==1.0.0
+pydantic==2.11.3
+pytest==7.4.0
