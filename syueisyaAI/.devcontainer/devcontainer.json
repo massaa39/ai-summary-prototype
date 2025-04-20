@@ -1,0 +1,8 @@
+{
+  "name": "AI Summary Prototype",
+  "image": "mcr.microsoft.com/vscode/devcontainers/python:3.10",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:1": {}
+  },
+  "postCreateCommand": "bash run_demo.sh"
+}

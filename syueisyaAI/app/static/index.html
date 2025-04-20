@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プレスリリース要約生成デモ</title>
+</head>
+<body>
+  <h1>プレスリリース要約生成</h1>
+  <form id="form">
+    <textarea name="text" rows="10" cols="60" placeholder="プレスリリース本文を入力"></textarea><br>
+    <button type="submit">要約生成</button>
+  </form>
+  <h2>結果</h2>
+  <div id="result"></div>
+
+  <script>
+    document.getElementById('form').onsubmit = async (e) => {
+      e.preventDefault();
+      const text = e.target.text.value;
+      const res = await fetch('/api/summarize', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text })
+      });
+      const data = await res.json();
+      document.getElementById('result').innerHTML = 
+        `<h3>${data.title}</h3><p>${data.summary}</p><p><em>対象読者：${data.audience}</em></p>`;
+    };
+  </script>
+</body>
+</html>
